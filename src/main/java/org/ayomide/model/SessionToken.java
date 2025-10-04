@@ -58,4 +58,8 @@ public class SessionToken {
     public void setUser(User user) {
         this.user = user;
     }
+
+    public void setExpireAt(LocalDateTime localDateTime) {
+        this.createdAt = createdAt;
+    }
 }
