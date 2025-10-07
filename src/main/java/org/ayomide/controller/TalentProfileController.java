@@ -66,7 +66,7 @@ public class TalentProfileController {
      * Update specific fields of talent profile (PATCH)
      * PATCH /profile/post-profile
      */
-    @PatchMapping("/post-profile")
+    @PatchMapping("/patch-profile")
     public ResponseEntity<TalentProfileResponse> updateProfile(
             @RequestHeader("Authorization") String bearerToken,
             @RequestBody TalentProfileRequest request) {
