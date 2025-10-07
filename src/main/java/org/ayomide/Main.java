@@ -11,5 +11,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EntityScan("org.ayomide.model")
 public class Main {
     public static void main(String[] args) {
-        SpringApplication.run(Main.class, args);    }
+
+        SpringApplication.run(Main.class, args);
+
+    }
 }

@@ -1,6 +1,6 @@
 package org.ayomide.dto.request;
 
-public class ProfileRequest {
+public class TalentProfileRequest {
 
     private String transcript;
     private String statementOfPurpose;

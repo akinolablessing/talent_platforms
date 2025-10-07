@@ -1,7 +1,6 @@
 package org.ayomide.model;
 
 import jakarta.persistence.*;
-
 import java.time.LocalDateTime;
 
 @Entity
@@ -10,18 +9,20 @@ public class TalentProfile {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(optional = false)
+    @OneToOne
+    @JoinColumn(name = "user_id", nullable = false, unique = true)
     private User user;
 
-    @Lob
-    private String tranScript;
-
-    @Lob
+    private String transcript;
     private String statementOfPurpose;
 
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+    public TalentProfile(User user, String transcript, String sop) {
+        this.user = user;
+        this.transcript = transcript;
+        this.statementOfPurpose = sop;
+    }
 
+    public TalentProfile() {}
 
     public Long getId() {
         return id;
@@ -39,12 +40,12 @@ public class TalentProfile {
         this.user = user;
     }
 
-    public String getTranScript() {
-        return tranScript;
+    public String getTranscript() {
+        return transcript;
     }
 
-    public void setTranScript(String tranScript) {
-        this.tranScript = tranScript;
+    public void setTranscript(String transcript) {
+        this.transcript = transcript;
     }
 
     public String getStatementOfPurpose() {
@@ -53,21 +54,5 @@ public class TalentProfile {
 
     public void setStatementOfPurpose(String statementOfPurpose) {
         this.statementOfPurpose = statementOfPurpose;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
     }
 }
